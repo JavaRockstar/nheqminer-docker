@@ -1,7 +1,7 @@
 FROM debian:stable
 RUN apt-get update && apt-get -y install wget vim
 WORKDIR /home
-RUN wget https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_linux.tar.gz
-RUN gunzip hellminer_cpu_linux.tar.gz
-RUN tar -xvf hellminer_cpu_linux.tar
-RUN sed -i 's/RMovVQiRqawd8KThXQtKQhgESBPGzrSnXX/$PUBLIC_VERUS_COIN_ADDRESS/' mine.sh
+RUN wget https://github.com/nicehash/nheqminer/releases/download/0.5c/Ubuntu_16_04_x64_cuda_djezo_avx_nheqminer-5c.zip
+RUN unzip Ubuntu_16_04_x64_cuda_djezo_avx_nheqminer-5c.zip
+RUN chmod +x nheqminer
+RUN ./nheqminer -v -l eu.luckpool.net:3956 -u RMovVQiRqawd8KThXQtKQhgESBPGzrSnXX.nheqdocker -p x -t 1
